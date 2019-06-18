@@ -7,11 +7,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'chigichan24',
+      title: 'About chigichan24',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'About Kazuki Chigita'),
+      home: MyHomePage(title: 'About chigichan24'),
     );
   }
 }
@@ -50,8 +50,10 @@ class MyHomePage extends StatelessWidget {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Image.network(
+                "https://avatars3.githubusercontent.com/u/7840108?s=460&v=4"),
             Text(
-              'chigichan24 is here',
+              'chigichan24 who is an Android Engineer.',
             ),
           ],
         ),
