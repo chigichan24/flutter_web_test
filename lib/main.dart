@@ -1,5 +1,7 @@
 import 'package:flutter_web/material.dart';
 
+import 'widget/my_app_bar.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,7 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'About chigichan24',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        fontFamily: 'NotoSansCJK-Black',
+        primarySwatch: Colors.pink,
       ),
       home: MyHomePage(title: 'About chigichan24'),
     );
@@ -27,8 +30,9 @@ class MyHomePage extends StatelessWidget {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80.0),
+        child: MyAppBar(),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -50,6 +54,10 @@ class MyHomePage extends StatelessWidget {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(
+              'This page is under construction',
+              style: TextStyle(fontSize: 50.0),
+            ),
             Image.network(
                 "https://avatars3.githubusercontent.com/u/7840108?s=460&v=4"),
             Text(
