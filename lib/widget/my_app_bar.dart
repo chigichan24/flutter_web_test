@@ -29,7 +29,7 @@ class MyAppBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     ItemAppBar(name: "Project"),
-                    ItemAppBar(name: "Pulication"),
+                    ItemAppBar(name: "Publication"),
                     ItemAppBar(
                       name: "Blog",
                       onPressed: () => {
