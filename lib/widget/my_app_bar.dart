@@ -1,5 +1,6 @@
 import 'package:flutter_web/material.dart';
 import 'item_app_bar.dart';
+import 'dart:html';
 
 class MyAppBar extends StatelessWidget {
   MyAppBar();
@@ -27,10 +28,14 @@ class MyAppBar extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    ItemAppBar("Project"),
-                    ItemAppBar("Pulication"),
-                    ItemAppBar("Blog"),
-                    ItemAppBar("Profile")
+                    ItemAppBar(name: "Project"),
+                    ItemAppBar(name: "Pulication"),
+                    ItemAppBar(
+                      name: "Blog",
+                      onPressed: () => {
+                        window.open("https://chigichan24.hatenablog.com", 'tab')
+                      }),
+                    ItemAppBar(name: "Profile")
                   ],
                 )
               ],
