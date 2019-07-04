@@ -46,7 +46,37 @@ class MyAppBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     FlatButton(
-                      onPressed: null,
+                      onPressed: () async {
+                        await showDialog(
+                          context: context,
+                          builder: (context) {
+                            return SimpleDialog(
+                              title: Text("Portfolio Contents"),
+                              children: <Widget>[
+                                SimpleDialogOption(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: Text("Project"),
+                                ),
+                                SimpleDialogOption(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: Text("Publication"),
+                                ),
+                                SimpleDialogOption(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    window.open("https://chigichan24.hatenablog.com", 'tab');
+                                  },
+                                  child: Text("Blog"),
+                                ),
+                                SimpleDialogOption(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: Text("Profile"),
+                                )
+                              ],
+                            );
+                          }
+                        );
+                      },
                       padding: EdgeInsets.all(12.0),
                       child: Image.asset("menu.png",width: 24, height: 24)
                     )
