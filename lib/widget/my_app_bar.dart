@@ -27,10 +27,11 @@ class MyAppBar extends StatelessWidget {
                   ],
                 ),
                 Spacer(),
-                if (ResponsiveLayout.isLargeScreen(context))
+                if (ResponsiveLayout.isMediumScreen(context) || ResponsiveLayout.isLargeScreen(context))
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
+                    ItemAppBar(name: "Profile"),
                     ItemAppBar(name: "Project"),
                     ItemAppBar(name: "Publication"),
                     ItemAppBar(
@@ -38,7 +39,7 @@ class MyAppBar extends StatelessWidget {
                       onPressed: () => {
                         window.open("https://chigichan24.hatenablog.com", 'tab')
                       }),
-                    ItemAppBar(name: "Profile")
+
                   ],
                 )
                 else
@@ -55,6 +56,10 @@ class MyAppBar extends StatelessWidget {
                               children: <Widget>[
                                 SimpleDialogOption(
                                   onPressed: () => Navigator.pop(context),
+                                  child: Text("Profile"),
+                                ),
+                                SimpleDialogOption(
+                                  onPressed: () => Navigator.pop(context),
                                   child: Text("Project"),
                                 ),
                                 SimpleDialogOption(
@@ -67,17 +72,13 @@ class MyAppBar extends StatelessWidget {
                                     window.open("https://chigichan24.hatenablog.com", 'tab');
                                   },
                                   child: Text("Blog"),
-                                ),
-                                SimpleDialogOption(
-                                  onPressed: () => Navigator.pop(context),
-                                  child: Text("Profile"),
                                 )
                               ],
                             );
                           }
                         );
                       },
-                      padding: EdgeInsets.all(12.0),
+                      padding: EdgeInsets.only(top: 12.0, bottom: 12.0),
                       child: Image.asset("menu.png",width: 24, height: 24)
                     )
                   ],
