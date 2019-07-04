@@ -1,6 +1,7 @@
 import 'package:flutter_web/material.dart';
 import 'item_app_bar.dart';
 import 'dart:html';
+import './../util/responsive_layout.dart';
 
 class MyAppBar extends StatelessWidget {
   MyAppBar();
@@ -12,6 +13,7 @@ class MyAppBar extends StatelessWidget {
         title: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
+
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -25,6 +27,7 @@ class MyAppBar extends StatelessWidget {
                   ],
                 ),
                 Spacer(),
+                if (ResponsiveLayout.isLargeScreen(context))
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
@@ -38,9 +41,20 @@ class MyAppBar extends StatelessWidget {
                     ItemAppBar(name: "Profile")
                   ],
                 )
+                else
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    FlatButton(
+                      onPressed: null,
+                      padding: EdgeInsets.all(12.0),
+                      child: Image.asset("menu.png",width: 24, height: 24)
+                    )
+                  ],
+                )
               ],
-            ),
-          ],
+            )
+            ],
         ));
   }
 }
