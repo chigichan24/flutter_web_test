@@ -82,7 +82,7 @@ class MyHomePage extends StatelessWidget {
                               Text("Kazuki Chigita / 千北 一期",
                                 style: TextStyle(fontSize: 22.0),
                               ),
-                              Text("- Graduate student in computer sience at University of Tsukuba, Japan"),
+                              Text("- Graduate student in computer science at University of Tsukuba, Japan"),
                               Text("- Software Engineer(mostly Android application development)"),
                               Text("- Interested in complex software development / signal processing problem, which can resolved by compressed sensing"),
                               RichText(
