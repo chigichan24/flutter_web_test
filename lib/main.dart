@@ -1,4 +1,6 @@
 import 'package:flutter_web/material.dart';
+import 'package:flutter_web/gestures.dart';
+import 'dart:html';
 
 import 'widget/my_app_bar.dart';
 import './util/responsive_layout.dart';
@@ -57,7 +59,7 @@ class MyHomePage extends StatelessWidget {
                     children: <Widget>[
                       if (ResponsiveLayout.isLargeScreen(context))
                       Container(
-                        margin: const EdgeInsets.only(left: 128, right: 32),
+                        margin: const EdgeInsets.only(left: 64, right: 32),
                         child: Image.asset("chigichan24.png", width: 160, height: 160),
                       )
                       else if(ResponsiveLayout.isLargeScreen(context))
@@ -83,6 +85,14 @@ class MyHomePage extends StatelessWidget {
                               Text("- Graduate student in computer sience at University of Tsukuba, Japan"),
                               Text("- Software Engineer(mostly Android application development)"),
                               Text("- Interested in complex software development / signal processing problem, which can resolved by compressed sensing"),
+                              RichText(
+                                text: TextSpan(
+                                  text: ">>resume(pdf)",
+                                  style: TextStyle(color: Colors.cyan, decoration: TextDecoration.underline),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () => window.open("https://drive.google.com/file/d/1L82nLq_IqddvcgWRMCxbVxusI0v_jEoj/view", 'tab')
+                                ),
+                              )
                             ],
                           ),
                         )
