@@ -1,6 +1,8 @@
 import 'package:flutter_web/material.dart';
 
 import 'widget/my_app_bar.dart';
+import './util/responsive_layout.dart';
+import 'widget/item_title_section.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,38 +36,73 @@ class MyHomePage extends StatelessWidget {
         preferredSize: Size.fromHeight(70.0),
         child: MyAppBar(),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (choose the "Toggle Debug Paint" action
-          // from the Flutter Inspector in Android Studio, or the "Toggle Debug
-          // Paint" command in Visual Studio Code) to see the wireframe for each
-          // widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'This page is under construction',
-              style: TextStyle(fontSize: 50.0),
-            ),
-            Image.network(
-                "https://avatars3.githubusercontent.com/u/7840108?s=460&v=4"),
-            Text(
-              'chigichan24 who is an Android Engineer.',
-            ),
-          ],
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          if (ResponsiveLayout.isLargeScreen(context))
+          Expanded(
+            flex: 2,
+            child: Container(),
+          ),
+          Expanded(
+            flex: 6,
+            child: Container(
+              color: Colors.white54,
+              child: ListView(
+                padding: const EdgeInsets.all(8.0),
+                children: <Widget>[
+                  ItemTitleSection(title: "Profile", icon_data: Icons.person),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      if (ResponsiveLayout.isLargeScreen(context))
+                      Container(
+                        margin: const EdgeInsets.only(left: 128, right: 32),
+                        child: Image.asset("chigichan24.png", width: 160, height: 160),
+                      )
+                      else if(ResponsiveLayout.isLargeScreen(context))
+                      Container(
+                        margin: const EdgeInsets.only(left: 64, right: 32),
+                        child: Image.asset("chigichan24.png", width: 160, height: 160),
+                      )
+                      else
+                      Container(
+                        margin: const EdgeInsets.only(left: 32, right: 32),
+                        child: Image.asset("chigichan24.png", width: 160, height: 160),
+                      ),
+                      Container(
+                        //margin: const EdgeInsets.only(right: 16),
+                        child: Flexible(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Kazuki Chigita / 千北 一期",
+                                style: TextStyle(fontSize: 22.0),
+                              ),
+                              Text("- Graduate student in computer sience at University of Tsukuba, Japan"),
+                              Text("- Software Engineer(mostly Android application development)"),
+                              Text("- Interested in complex software development / signal processing problem, which can resolved by compressed sensing"),
+                            ],
+                          ),
+                        )
+                      ),
+                    ],
+                  ),
+                  ItemTitleSection(title: "Career", icon_data: Icons.work),
+                  ItemTitleSection(title: "Publication", icon_data: Icons.format_list_bulleted),
+                  ItemTitleSection(title: "Links", icon_data: Icons.link),
+                ],
+              )
+            )
+          ),
+          if(ResponsiveLayout.isLargeScreen(context))
+          Expanded(
+            flex: 2,
+            child: Container(),
+          )
+        ],
+      ),
     );
   }
 }

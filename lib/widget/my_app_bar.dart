@@ -20,10 +20,16 @@ class MyAppBar extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
+                    if (!ResponsiveLayout.isSmallScreen(context))
                     Container(
                       margin: const EdgeInsets.only(left: 24.0, right: 24.0),
                       child: Text("Kazuki Chigita's Portfolio"),
-                    ),
+                    )
+                    else
+                    Container(
+                      margin: const EdgeInsets.only(left: 24.0, right: 24.0),
+                      child: Text("Portfolio"),
+                    )
                   ],
                 ),
                 Spacer(),
